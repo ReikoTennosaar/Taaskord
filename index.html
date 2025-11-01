@@ -22,9 +22,6 @@
   <link rel="canonical" href="https://taaskord.ee">
   <title>Taaskord OÜ - Tasuta Äraviimine Tartus | Arvutid, Mööbel, Tehnika</title>
   
-  <!-- Preload critical resources -->
-  <link rel="preload" as="style" href="styles.css">
-  
   <style>
     /* Base styles */
     :root {
@@ -351,52 +348,24 @@
       line-height: 1.6;
     }
 
-    /* Items Section */
-    .items-section {
-      background: rgba(59, 130, 246, 0.05);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 1.5rem;
-      padding: 3rem;
+    /* Important Note */
+    .important-note {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-top: 2rem;
     }
 
-    .items-section h3 {
-      color: var(--primary);
-      font-size: 1.75rem;
-      margin-bottom: 2rem;
-      text-align: center;
+    .important-note strong {
+      color: var(--secondary);
+      font-size: 1.05rem;
     }
 
-    .items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .item-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 0.8rem;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .item-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .item-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .item-label {
-      color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 500;
+    .important-note p {
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      line-height: 1.7;
     }
 
     /* FAQ Section */
@@ -452,6 +421,23 @@
       transform: rotate(180deg);
     }
 
+    /* Items list in FAQ */
+    .items-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .item-tag {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 0.5rem;
+      padding: 0.7rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
     /* Contact Section */
     .contact-section {
       background: var(--card-bg);
@@ -486,6 +472,9 @@
       border-radius: 1rem;
       padding: 2rem;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .contact-card:hover {
@@ -505,11 +494,31 @@
       margin-bottom: 1rem;
     }
 
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--primary-dark));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: auto;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    }
+
     .contact-link {
       color: var(--text);
       text-decoration: none;
       font-size: 1.05rem;
       transition: color 0.3s ease;
+      margin-bottom: 1rem;
     }
 
     .contact-link:hover {
@@ -590,8 +599,8 @@
         grid-template-columns: 1fr;
       }
 
-      .items-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      .items-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       }
 
       h2::after {
@@ -612,13 +621,12 @@
       <h1>Taaskord OÜ</h1>
       <p class="hero-subtitle">Viime tasuta ära töötavad esemed Tartus ja lähiümbruses</p>
       <p class="hero-description">
-        Pole aega müüa? Liiga vaevarikas? Meie tuleme ise järele, teeme vajadusel parandused ja anname asjadele uue elu. 
-        Kiire, mugav ja keskkonnasõbralik lahendus.
+        Pole aega müüa? Liiga vaevarikas?
       </p>
       <div class="cta-container">
         <a href="#kontakt" class="cta-button cta-primary">
           <span>📞</span>
-          <span>Broneeri Tasuta Äraviimine</span>
+          <span>Võta Ühendust</span>
         </a>
         <a href="https://www.facebook.com/marketplace/profile/100014380519015/?ref=permalink&tab=listings" target="_blank" rel="noopener noreferrer" class="cta-button cta-secondary">
           <span>🛒</span>
@@ -691,17 +699,31 @@
         </div>
       </div>
     </section>
-      
-      <div class="important-note">
-        <strong>Oluline!</strong>
-        <p>Võtame vastu ainult töötavaid esemeid. Kui te ei ole kindel kas me Teie eseme vastu võtame siis saatke meile ikkagi pilt!</p>
-      </div>
-    </section>
 
     <!-- FAQ Section -->
     <section>
       <h2>Korduma Kippuvad Küsimused</h2>
       <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Milliseid esemeid te kogute?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Võtame vastu töötavaid esemeid järgnevatest kategooriatest:</p>
+            <div class="items-list">
+              <div class="item-tag">💻 Arvutid</div>
+              <div class="item-tag">🛋️ Mööbel</div>
+              <div class="item-tag">📱 Nutitelefonid</div>
+              <div class="item-tag">🎮 Mängukonsoolid</div>
+              <div class="item-tag">📺 TV-d</div>
+              <div class="item-tag">🔊 Helisüsteemid</div>
+              <div class="item-tag">🏠 Kodumasinad</div>
+            </div>
+            <p><strong>Oluline:</strong> Võtame vastu ainult töötavaid esemeid. Kui tegemist on katkise esemega, siis võtame vastu ainult juhul, kui sellel on parandusvõimalus.</p>
+          </div>
+        </div>
+        
         <div class="faq-item">
           <div class="faq-question">
             <span>Kas äraviimine on tasuta?</span>
@@ -754,12 +776,18 @@
           <span class="contact-icon">📧</span>
           <h3>E-post</h3>
           <a href="mailto:Reixttt@gmail.com" class="contact-link">Reixttt@gmail.com</a>
+          <a href="mailto:Reixttt@gmail.com?subject=Pildid asjadest&body=Tere! Saadan teile pildid oma asjadest." class="contact-button">
+            <span>Saada pildid</span>
+          </a>
         </div>
         
         <div class="contact-card">
           <span class="contact-icon">📱</span>
           <h3>Telefon</h3>
-          <a href="tel:+37253735757" class="contact-link">+372 5918 5866</a>
+          <a href="tel:+37259185866" class="contact-link">+372 5918 5866</a>
+          <a href="sms:+37259185866?body=Tere! Sooviksin teile oma asju ära anda. Saadan pildid." class="contact-button">
+            <span>Saada SMS</span>
+          </a>
         </div>
         
         <div class="contact-card">
@@ -767,6 +795,9 @@
           <h3>Sotsiaalmeedia</h3>
           <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank" rel="noopener noreferrer" class="contact-link">Facebook</a>
           <a href="https://www.instagram.com/taaskord/" target="_blank" rel="noopener noreferrer" class="contact-link">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank" rel="noopener noreferrer" class="contact-button">
+            <span>Võta ühendust</span>
+          </a>
         </div>
       </div>
       
