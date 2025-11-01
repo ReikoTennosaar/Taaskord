@@ -3,470 +3,883 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Taaskord OÜ - Viime tasuta ära töötavad asjad, mida enam ei vaja. Teeme parandusi ja anname uue elu. Tartu.">
-  <meta name="keywords" content="kasutatud asjad, tasuta äraviimine, tehnika, mööbel, Tartu, taaskasutus">
-  <title>Taaskord OÜ - Viime tasuta ära töötavad asjad | Tartu</title>
+  <meta name="description" content="Taaskord OÜ viib tasuta ära töötavad asjad Tartus ja lähiümbruses. Arvutid, mööbel, tehnika, rõivad - anname uue elu. Kiire tasuta äraviimine. ☎️ Helista täna!">
+  <meta name="keywords" content="tasuta äraviimine Tartu, kasutatud tehnika ost, töötav arvuti äraviimine, mööbli tasuta äraviimine, taaskasutus Tartu, keskkonnasõbralik, jäätmevaba">
+  <meta name="author" content="Taaskord OÜ">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Taaskord OÜ - Viime Tasuta Ära Töötavad Asjad Tartus">
+  <meta property="og:description" content="Tasuta äraviimine, parandused ja uus elu teie asjadele. Teenindame eraisikuid ja ettevõtteid Tartus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://taaskord.ee">
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:image" content="https://taaskord.ee/images/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <link rel="canonical" href="https://taaskord.ee">
+  <title>Taaskord OÜ - Tasuta Äraviimine Tartus | Arvutid, Mööbel, Tehnika</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" as="style" href="styles.css">
+  
   <style>
+    /* Base styles */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #10b981;
+      --accent: #06b6d4;
+      --gradient-start: #3b82f6;
+      --gradient-end: #06b6d4;
+      --text: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --background: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.6);
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    :root {
-      --primary: #2563eb;
-      --primary-light: #3b82f6;
-      --accent: #10b981;
-      --dark: #0f172a;
-      --dark-light: #1e293b;
-      --text: #f1f5f9;
-      --text-muted: #cbd5e1;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Arial, sans-serif;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      background: var(--background);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-size: 16px;
+      overflow-x: hidden;
     }
 
-    header {
-      text-align: center;
-      padding: 4rem 1.5rem 2rem;
-      animation: fadeInDown 0.8s ease;
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary-light), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       letter-spacing: -0.02em;
     }
 
-    .tagline {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto;
-      font-weight: 300;
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      position: relative;
+      padding-bottom: 1rem;
     }
 
-    main {
-      flex: 1;
-      padding: 2rem 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      animation: fadeInUp 1s ease;
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      border-radius: 2px;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    p {
+      margin-bottom: 1.5rem;
     }
 
-    .card {
-      background: rgba(30, 41, 59, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(37, 99, 235, 0.3);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .cta-section {
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      padding: 4rem 1.5rem 6rem;
       text-align: center;
-      margin: 3rem 0;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 1.25rem 2.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+      border-bottom: 1px solid var(--border);
       position: relative;
       overflow: hidden;
     }
 
-    .cta-button::before {
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-weight: 500;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .hero-description {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    /* CTA Buttons */
+    .cta-container {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 1.1rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, var(--gradient-start), var(--primary-dark));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+    }
+
+    .cta-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-items {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .trust-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .trust-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
+      left: 0;
       width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
 
-    .cta-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 40px rgba(37, 99, 235, 0.5);
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .cta-button:hover::before {
-      left: 100%;
+    .service-card:hover::before {
+      transform: scaleX(1);
     }
 
-    /* Process Steps */
-    .process-section {
-      margin: 3rem 0;
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
     }
 
-    .section-title {
-      text-align: center;
-      color: var(--accent);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
-      font-weight: 700;
+    .service-card h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .steps-container {
+    .service-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Process Section */
+    .process-steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      position: relative;
     }
 
     .step {
-      background: rgba(30, 41, 59, 0.4);
-      padding: 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       border-radius: 1rem;
-      border: 2px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
+      padding: 2.5rem 2rem;
       text-align: center;
+      transition: all 0.3s ease;
       position: relative;
     }
 
     .step:hover {
-      background: rgba(30, 41, 59, 0.6);
-      border-color: var(--accent);
       transform: translateY(-5px);
+      border-color: var(--primary);
     }
 
     .step-number {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
       border-radius: 50%;
       font-size: 1.75rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+      color: white;
     }
 
     .step h3 {
-      color: var(--primary-light);
+      color: var(--text);
+      font-size: 1.25rem;
       margin-bottom: 1rem;
-      font-size: 1.35rem;
-      font-weight: 600;
     }
 
     .step p {
       color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    /* What We Take Section */
-    .what-we-take {
-      background: rgba(16, 185, 129, 0.1);
-      border: 2px solid rgba(16, 185, 129, 0.3);
-      padding: 2rem;
-      border-radius: 1rem;
-      margin: 2rem 0;
+    /* Items Section */
+    .items-section {
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 1.5rem;
+      padding: 3rem;
     }
 
-    .what-we-take h3 {
-      color: var(--accent);
-      text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .items-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .item-tag {
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--accent);
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .item-tag:hover {
-      background: rgba(16, 185, 129, 0.25);
-      transform: scale(1.05);
-    }
-
-    /* Contact Section */
-    .contact-info {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .contact-info h2 {
-      color: var(--primary-light);
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-
-    .contact-subtitle {
-      color: var(--text-muted);
+    .items-section h3 {
+      color: var(--primary);
+      font-size: 1.75rem;
       margin-bottom: 2rem;
-      font-size: 1.05rem;
+      text-align: center;
     }
 
-    .email-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(37, 99, 235, 0.1);
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      margin: 1rem 0;
-    }
-
-    .email-link:hover {
-      background: rgba(37, 99, 235, 0.2);
-      transform: scale(1.05);
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
 
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      color: var(--text);
-      text-decoration: none;
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 0.8rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
       transition: all 0.3s ease;
-      font-weight: 500;
     }
 
-    .social-link:hover {
-      background: rgba(37, 99, 235, 0.2);
+    .item-card:hover {
       border-color: var(--primary);
       transform: translateY(-3px);
     }
 
-    footer {
+    .item-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .item-label {
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.8rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 1.5rem;
+      padding: 4rem 2rem;
       text-align: center;
-      padding: 2rem 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-section h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .contact-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-card {
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .contact-card h3 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
       color: var(--text-muted);
       font-size: 0.9rem;
-      margin-top: 3rem;
+    }
+
+    .footer-bottom p {
+      margin-bottom: 0;
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      header {
-        padding: 3rem 1rem 1.5rem;
+      .hero {
+        padding: 3rem 1rem 4rem;
       }
 
-      .card {
-        padding: 1.5rem;
-      }
-
-      .cta-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .steps-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .social-links {
+      .cta-container {
         flex-direction: column;
         align-items: center;
       }
 
-      .social-link {
+      .cta-button {
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
         justify-content: center;
       }
 
-      .section-title {
-        font-size: 1.75rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.75rem;
+      .trust-items {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
       }
 
-      .tagline {
-        font-size: 0.95rem;
+      .services-grid, .process-steps {
+        grid-template-columns: 1fr;
       }
 
-      main {
-        padding: 1.5rem 1rem;
+      .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       }
 
-      .step {
-        padding: 1.5rem;
+      h2::after {
+        left: 50%;
+        transform: translateX(-50%);
       }
 
-      .step-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+      section {
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Taaskord OÜ</h1>
-    <p class="tagline">Anname uue elu asjadele, mis sinu jaoks enam väärtust ei oma</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Taaskord OÜ</h1>
+      <p class="hero-subtitle">Viime tasuta ära töötavad esemed Tartus ja lähiümbruses</p>
+      <p class="hero-description">
+        Pole aega müüa? Liiga vaevarikas? Meie tuleme ise järele, teeme vajadusel parandused ja anname asjadele uue elu. 
+        Kiire, mugav ja keskkonnasõbralik lahendus.
+      </p>
+      <div class="cta-container">
+        <a href="#kontakt" class="cta-button cta-primary">
+          <span>📞</span>
+          <span>Broneeri Tasuta Äraviimine</span>
+        </a>
+        <a href="https://www.facebook.com/marketplace/profile/100014380519015/?ref=permalink&tab=listings" target="_blank" rel="noopener noreferrer" class="cta-button cta-secondary">
+          <span>🛒</span>
+          <span>Vaata Meie Tooteid</span>
+        </a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <div class="cta-section">
-      <a href="https://www.facebook.com/marketplace/profile/100014380519015/?ref=permalink&tab=listings" target="_blank" class="cta-button">
-        🛒 Vaata meie tooteid Facebook Marketplace'is
-      </a>
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-number">150+</div>
+        <div class="trust-label">Asja päästetud prügimäest</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">100%</div>
+        <div class="trust-label">Tasuta äraviimine</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number">24h</div>
+        <div class="trust-label">Keskmine vastamisaeg</div>
+      </div>
     </div>
+  </div>
 
-    <div class="card process-section">
-      <h2 class="section-title">Kuidas me töötame?</h2>
-      
-      <div class="steps-container">
+  <!-- Main Content -->
+  <main>
+    <!-- Why Choose Us Section -->
+    <section>
+      <h2>Miks Valida Taaskord?</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🚚</span>
+          <h3>Täiesti Tasuta</h3>
+          <p>Tuleme ise järele ja viime asjad tasuta ära. Sinu jaoks null muret ja null kulusid. Teenindame nii eraisikuid kui ettevõtteid.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">⚡</span>
+          <h3>Kiire ja Mugav</h3>
+          <p>Pole vaja kuulutusi teha, ostjaid oodata ega kellegagi läbirääkimisi pidada. Kirjuta, lepime kokku ja tulemegi.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🌱</span>
+          <h3>Keskkonnasõbralik</h3>
+          <p>Aitad vähendada prügi. Asjad saavad uue elu ja jätkavad teenimist, selle asemel et jõuda prügimäele.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section>
+      <h2>Kuidas See Töötab?</h2>
+      <div class="process-steps">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Otsime töötavaid asju</h3>
-          <p>Kui sul on töötavaid esemeid, mida enam ei vaja - võta meiega ühendust. Teenindame nii eraisikuid kui ka ettevõtteid.</p>
+          <h3>Võta Ühendust</h3>
+          <p>Kirjuta või helista meile, võimalusel saatke pilte.</p>
         </div>
-
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Viime tasuta ära</h3>
-          <p>Tuleme asjadele ise järele. Tasuta äraviimine Tartus ja lähiümbruses.</p>
+          <h3>Me Tuleme Järele</h3>
+          <p>Tuleme ise sinu juurde ja viime asjad tasuta ära.</p>
         </div>
-
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Teeme parandusi</h3>
-          <p>Vajadusel teeme väiksemaid parandusi ja hooldame asjad müügikorda.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Müüme edasi</h3>
-          <p>Anname asjadele uue elu, müües neid uutele soovijatele.</p>
+          <h3>Anname Uue Elu</h3>
+          <p>Vajadusel teeme parandusi ning seejärel tegeleme juba ise müügiga</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <div class="what-we-take">
-        <h3>Mida me vastu võtame?</h3>
-        <div class="items-list">
-          <span class="item-tag">💻 Arvutid ja sülearvutid</span>
-          <span class="item-tag">📱 Telefonid ja tahvelarvutid</span>
-          <span class="item-tag">🖥️ Monitorid ja TV'd</span>
-          <span class="item-tag">🪑 Mööbel (diivanid, toolid, lauad)</span>
-          <span class="item-tag">👕 Rõivad ja aksessuaarid</span>
-          <span class="item-tag">🏠 Kodutehnika</span>
-          <span class="item-tag">🎮 Elektroonika</span>
+    <!-- Items We Collect Section -->
+    <section class="items-section">
+      <h3>Mida Me Kõike Kogume?</h3>
+      <div class="items-grid">
+        <div class="item-card">
+          <span class="item-icon">💻</span>
+          <div class="item-label">Arvutid</div>
+        </div>
+        <div class="item-card">
+          <span class="item-icon">🛋️</span>
+          <div class="item-label">Mööbel</div>
+        </div>
+        <div class="item-card">
+          <span class="item-icon">📱</span>
+          <div class="item-label">Nutitelefonid</div>
+        </div>
+        <div class="item-card">
+          <span class="item-icon">🎮</span>
+          <div class="item-label">Mängukonsoolid</div>
+        </div>
+        <div class="item-card">
+          <span class="item-icon">📺</span>
+          <div class="item-label">TV-d</div>
+        </div>
+        <div class="item-card">
+          <span class="item-icon">🔊</span>
+          <div class="item-label">Helisüsteemid</div>
+        </div>
+        <div class="item-card">
+          <span class="item-icon">🏠</span>
+          <div class="item-label">Kodumasinad</div>
         </div>
       </div>
       
-      <p style="text-align: center; color: var(--text-muted); margin-top: 2rem; font-size: 1.05rem; line-height: 1.8;">
-        <strong style="color: var(--accent);">Oluline:</strong> Võtame vastu ainult töötavaid esemeid, mis on veel kasutatavad. 
-        Kui olete ettevõte või haldusfirma, kes vajab abi suurema koguse asjade äraviimisega - võtke julgelt ühendust!
-      </p>
-    </div>
-
-    <div class="card contact-info">
-      <h2>Võta Ühendust</h2>
-      <p class="contact-subtitle">On sul töötavaid asju, mida enam ei vaja? Kirjuta meile!</p>
-      
-      <a href="mailto:Reixttt@gmail.com" class="email-link">
-        📧 Reixttt@gmail.com
-      </a>
-      
-      <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank" class="social-link">
-          📘 Facebook
-        </a>
-        <a href="https://www.instagram.com/taaskord/" target="_blank" class="social-link">
-          📸 Instagram
-        </a>
+      <div class="important-note">
+        <strong>Oluline!</strong>
+        <p>Võtame vastu ainult töötavaid esemeid. Kui te ei ole kindel kas me Teie eseme vastu võtame siis saatke meile ikkagi pilt!</p>
       </div>
-    </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+      <h2>Korduma Kippuvad Küsimused</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Kas äraviimine on tasuta?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Jah, me viime asjad tasuta ning tegeleme kogu ülejäänud protsessiga ise.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Milliseid piirkondi teenindate?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Peamiselt teenindame hetkel veel Tartu linna ja selle lähiümbrust.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Kui kiiresti saate asjad ära viia?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Püüame reeglina järgmise 24-48 tunni jooksul asjad ära viia. Suuremate asjade puhul võib aeg veidi pikem olla.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Kas võtate vastu ka mittetöötavaid asju?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Ei! Võtame vastu ainult töötavaid esemeid.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="contact-section">
+      <h2>Saada pildid ja võtame ühendust!</h2>
+      <p class="contact-subtitle">Saada pildid oma asjadest SMS-iga või meilile ning me võtame Teiega ühendust.</p>
+      
+      <div class="contact-methods">
+        <div class="contact-card">
+          <span class="contact-icon">📧</span>
+          <h3>E-post</h3>
+          <a href="mailto:Reixttt@gmail.com" class="contact-link">Reixttt@gmail.com</a>
+        </div>
+        
+        <div class="contact-card">
+          <span class="contact-icon">📱</span>
+          <h3>Telefon</h3>
+          <a href="tel:+37253735757" class="contact-link">+372 5918 5866</a>
+        </div>
+        
+        <div class="contact-card">
+          <span class="contact-icon">💬</span>
+          <h3>Sotsiaalmeedia</h3>
+          <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank" rel="noopener noreferrer" class="contact-link">Facebook</a>
+          <a href="https://www.instagram.com/taaskord/" target="_blank" rel="noopener noreferrer" class="contact-link">Instagram</a>
+        </div>
+      </div>
+      
+      <p>Vastame nii kiiresti kui võimalik!</p>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Taaskord OÜ | Registrikood: 17316842</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Taaskord OÜ</h4>
+        <p>Anname asjadele uue elu, vähendades prügi ja toetades ringmajandust Tartus ja selle ümbruses.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Kontakt</h4>
+        <a href="mailto:Reixttt@gmail.com">Reixttt@gmail.com</a>
+        <a href="tel:+37253735757">+372 5918 5866</a>
+        <p>Tartu ja lähiümbrus</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Jälgi Meid</h4>
+        <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/taaskord/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/marketplace/profile/100014380519015/?ref=permalink&tab=listings" target="_blank" rel="noopener noreferrer">Facebook Marketplace</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Taaskord OÜ | Registrikood: 17316842</p>
+    </div>
   </footer>
+
+  <!-- JavaScript for FAQ functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          // Close all other FAQ items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current FAQ item
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Taaskord OÜ",
+    "@id": "https://taaskord.ee",
+    "url": "https://taaskord.ee",
+    "telephone": "+37259185866",
+    "email": "Reixttt@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tartu",
+      "addressCountry": "EE"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61579796087714",
+      "https://www.instagram.com/taaskord/"
+    ],
+    "description": "Taaskord OÜ viib tasuta ära töötavad asjad Tartus ja lähiümbruses.",
+    "priceRange": "Tasuta"
+  }
+  </script>
 </body>
 </html>
