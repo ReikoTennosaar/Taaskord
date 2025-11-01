@@ -3,103 +3,382 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taaskord OÜ</title>
+  <meta name="description" content="Taaskord OÜ - Viime tasuta ära töötavad asjad, mida enam ei vaja. Teeme parandusi ja anname uue elu. Tartu.">
+  <meta name="keywords" content="kasutatud asjad, tasuta äraviimine, tehnika, mööbel, Tartu, taaskasutus">
+  <title>Taaskord OÜ - Viime tasuta ära töötavad asjad | Tartu</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
-      --blue: #1E6BFF;
-      --dark: #111;
-      --light: #f5f5f5;
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --accent: #10b981;
+      --dark: #0f172a;
+      --dark-light: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #cbd5e1;
     }
 
     body {
-      font-family: "Inter", Arial, sans-serif;
-      background-color: var(--dark);
-      color: var(--light);
-      margin: 0;
-      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Arial, sans-serif;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
 
     header {
       text-align: center;
-      padding: 80px 20px 20px;
+      padding: 4rem 1.5rem 2rem;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      color: var(--blue);
-      font-size: 2.4em;
-      margin-bottom: 10px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
 
-    p {
-      line-height: 1.6;
-      max-width: 650px;
-      margin: 10px auto;
-      font-size: 1.05em;
+    .tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 300;
     }
 
     main {
-      text-align: center;
       flex: 1;
-      padding: 20px;
+      padding: 2rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeInUp 1s ease;
     }
 
-    a {
-      color: var(--blue);
-      text-decoration: none;
-      transition: 0.2s;
-      word-break: break-word;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    a:hover {
-      opacity: 0.8;
+    .card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
     }
 
-    .marketplace {
-      margin-top: 30px;
-      margin-bottom: 10px;
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(37, 99, 235, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .marketplace a {
+    .cta-section {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-button {
       display: inline-block;
-      padding: 12px 25px;
-      border: 1px solid var(--blue);
-      border-radius: 8px;
-      background-color: transparent;
+      padding: 1.25rem 2.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(37, 99, 235, 0.5);
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    /* Process Steps */
+    .process-section {
+      margin: 3rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--accent);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      position: relative;
+    }
+
+    .step {
+      background: rgba(30, 41, 59, 0.4);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+    }
+
+    .step:hover {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    }
+
+    .step h3 {
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
       font-weight: 600;
     }
 
-    .social-links {
-      margin-top: 20px;
+    .step p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
-    .social-links a {
-      display: inline-block;
-      margin: 0 10px;
+    /* What We Take Section */
+    .what-we-take {
+      background: rgba(16, 185, 129, 0.1);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin: 2rem 0;
+    }
+
+    .what-we-take h3 {
+      color: var(--accent);
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .items-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .item-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .item-tag:hover {
+      background: rgba(16, 185, 129, 0.25);
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    .contact-info {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .contact-info h2 {
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .contact-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      margin: 1rem 0;
+    }
+
+    .email-link:hover {
+      background: rgba(37, 99, 235, 0.2);
+      transform: scale(1.05);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s ease;
       font-weight: 500;
+    }
+
+    .social-link:hover {
+      background: rgba(37, 99, 235, 0.2);
+      border-color: var(--primary);
+      transform: translateY(-3px);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      border-top: 1px solid #222;
-      font-size: 0.9em;
-      color: #aaa;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 3rem;
     }
 
-    @media (max-width: 600px) {
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1rem 1.5rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .steps-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-link {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
       h1 {
-        font-size: 1.8em;
+        font-size: 1.75rem;
       }
-      p {
-        font-size: 1em;
-        padding: 0 10px;
+
+      .tagline {
+        font-size: 0.95rem;
       }
-      .marketplace a {
-        width: 80%;
-        padding: 10px;
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      .step {
+        padding: 1.5rem;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -107,36 +386,87 @@
 <body>
   <header>
     <h1>Taaskord OÜ</h1>
-    <p>
-      Müüme ja anname uue elu tehnikale, riietele ja muudele headele asjadele.  
-      Lai valik tooteid, käest-kätte müük Tartus.  
-      Lisatasu eest toome tooted ka kohale.
-    </p>
+    <p class="tagline">Anname uue elu asjadele, mis sinu jaoks enam väärtust ei oma</p>
   </header>
 
   <main>
-    <div class="marketplace">
-      <a href="https://www.facebook.com/marketplace/profile/100014380519015/?ref=permalink&tab=listings" target="_blank">
-        Vaata tooteid Facebook Marketplace’is
+    <div class="cta-section">
+      <a href="https://www.facebook.com/marketplace/profile/100014380519015/?ref=permalink&tab=listings" target="_blank" class="cta-button">
+        🛒 Vaata meie tooteid Facebook Marketplace'is
       </a>
     </div>
 
-    <p>
-      Kui Teil on töötavaid esemeid, mida Te enam ei vaja - olete hoopis ettevõte või haldusfirma, kellel on vaja mööblist või tehnikast vabaneda - võta meiega ühendust.
-      Tuleme asjadele ise järele ning aitame neile uue elu anda, vajadusel teeme ka parandusi.
-    </p>
+    <div class="card process-section">
+      <h2 class="section-title">Kuidas me töötame?</h2>
+      
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Otsime töötavaid asju</h3>
+          <p>Kui sul on töötavaid esemeid, mida enam ei vaja - võta meiega ühendust. Teenindame nii eraisikuid kui ka ettevõtteid.</p>
+        </div>
 
-    <p><strong>Email:</strong> <a href="mailto:Reixttt@gmail.com">Reixttt@gmail.com</a></p>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Viime tasuta ära</h3>
+          <p>Tuleme asjadele ise järele. Tasuta äraviimine Tartus ja lähiümbruses.</p>
+        </div>
 
-    <div class="social-links">
-      <p></p>
-      <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank">Facebook</a> |
-      <a href="https://www.instagram.com/taaskord/" target="_blank">Instagram</a>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Teeme parandusi</h3>
+          <p>Vajadusel teeme väiksemaid parandusi ja hooldame asjad müügikorda.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Müüme edasi</h3>
+          <p>Anname asjadele uue elu, müües neid uutele soovijatele.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="what-we-take">
+        <h3>Mida me vastu võtame?</h3>
+        <div class="items-list">
+          <span class="item-tag">💻 Arvutid ja sülearvutid</span>
+          <span class="item-tag">📱 Telefonid ja tahvelarvutid</span>
+          <span class="item-tag">🖥️ Monitorid ja TV'd</span>
+          <span class="item-tag">🪑 Mööbel (diivanid, toolid, lauad)</span>
+          <span class="item-tag">👕 Rõivad ja aksessuaarid</span>
+          <span class="item-tag">🏠 Kodutehnika</span>
+          <span class="item-tag">🎮 Elektroonika</span>
+        </div>
+      </div>
+      
+      <p style="text-align: center; color: var(--text-muted); margin-top: 2rem; font-size: 1.05rem; line-height: 1.8;">
+        <strong style="color: var(--accent);">Oluline:</strong> Võtame vastu ainult töötavaid esemeid, mis on veel kasutatavad. 
+        Kui olete ettevõte või haldusfirma, kes vajab abi suurema koguse asjade äraviimisega - võtke julgelt ühendust!
+      </p>
+    </div>
+
+    <div class="card contact-info">
+      <h2>Võta Ühendust</h2>
+      <p class="contact-subtitle">On sul töötavaid asju, mida enam ei vaja? Kirjuta meile!</p>
+      
+      <a href="mailto:Reixttt@gmail.com" class="email-link">
+        📧 Reixttt@gmail.com
+      </a>
+      
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61579796087714" target="_blank" class="social-link">
+          📘 Facebook
+        </a>
+        <a href="https://www.instagram.com/taaskord/" target="_blank" class="social-link">
+          📸 Instagram
+        </a>
+      </div>
     </div>
   </main>
 
   <footer>
-    © 2025 Taaskord OÜ | Registrikood: 17316842
+    <p>© 2025 Taaskord OÜ | Registrikood: 17316842</p>
   </footer>
 </body>
 </html>
