@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taaskord.ee/sitemap.xml
+
+# Optional but helpful:
+# Prevent search engines from indexing system or temporary files
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /*.php$
+
+# Specify the main host
+Host: taaskord.ee
